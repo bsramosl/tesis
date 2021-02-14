@@ -4,10 +4,6 @@
   <meta charset="utf-8">
   <title>Bootstrap</title>
    {% load static %}  <!--cargar pagina statica-->
-
-  <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">  
   <!-- Bootstrap core CSS -->
   <link href="{% static 'Tesisapp/lib/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
   <!--external css-->
@@ -30,7 +26,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
       </div>
       <!--logo start-->
-      <a href="{% url 'Inicio'%}" class="logo"><b>BIP<span>RE</span></b></a>
+      <a href="{% url 'Inicio'%}" class="logo"><b>Pros<span>PY</span></b></a>
       <!--logo end-->
            
       <div class="top-menu">
@@ -56,7 +52,7 @@
           {%endif%} 
          
           <li class="mt">
-            <a class="active" href="index.html">
+            <a class="active" href="{% url 'Admin'%}">
               <i class="fa fa-dashboard"></i>
               <span>Dashboard</span>
               </a>
@@ -64,11 +60,11 @@
           <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-desktop"></i>
-              <span>Bioreactores</span>
+              <span>Tablas</span>
               </a>
             <ul class="sub">
-              <li><a href="{% url 'Crecimiento' %}">Crecimiento</a></li>
-              <li><a href="{% url 'Termica' %}">Inactivacion Termica</a></li>
+              <li><a href="{% url 'UsuarioAdmin' %}">Usuarios</a></li>
+              <li><a href=" ">Inactivacion Termica</a></li>
               <li><a href="panels.html">Panels</a></li>
               <li><a href="font_awesome.html">Font Awesome</a></li>
             </ul>
@@ -172,51 +168,9 @@
         *********************************************************************************************************************************************************** -->
     <!--main content start-->
     {% block content %}
+    
 
-   <section id="main-content">
-      <section class="wrapper">
-        <h3><i class="fa fa-angle-right"></i>Usuario</h3>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="content-panel">              
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <td>id</td>
-                    <td>Usuario</td>
-                    <td>Nombre</td>
-                    <td>Apellido</td>
-                    <td>Email</td>
-                    <td>Contraseña</td>                 
-                </thead>
-                <tbody>
-                  <tr>       
-                    {% if usuarios %}              
-                    {% for usuario in usuarios %}
-                    <td>{{usuario.id}}</td>
-                    <td>{{usuario.Usuario}}</td>
-                    <td>{{usuario.Nombre}}</td>
-                    <td>{{usuario.Apellido}}</td>
-                    <td>{{usuario.Email}}</td>
-                    <td>{{usuario.Contraseña}}</td>  
-                    <td>
-                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
-                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
-                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>                      
-                    </td>                                              
-                  </tr> 
-                  {% endfor %} 
-                  {% else %}
-                  <h1>No hay datos</h1>
-                  {%endif%}
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <!-- /col-md-12 -->
-        
-      </section>      
-    </section>        
+
     {% endblock %}  
     <!--main content end-->
 
@@ -229,19 +183,3 @@
 </body>
 </html>
 
-
-
-<div class="row mt">
-  <!-- SERVER STATUS PANELS -->
-  <div class="col-md-4 col-sm-4 mb">
-    |
-  </div>
-  <!-- /col-md-4-->
-  <div class="col-md-4 col-sm-4 mb">
-    
-  </div>
-  <!-- /col-md-4 -->
-  <div class="col-md-4 col-sm-4 mb">          
-  </div>
-  <!-- /col-md-4 -->
-</div>

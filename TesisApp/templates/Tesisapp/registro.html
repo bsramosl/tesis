@@ -20,12 +20,12 @@
               <button type="button" class="close" data-dismiss="alert" ></button>
               <strong>{{message}}</strong> 
             </div>
-      </div>
+      </div> 
       {%endfor%}
       <h4>Registro de Usuario</h4>
       <div class="form-panel">
         <div class="form">
-          <form class="cmxform form-horizontal style-form" method="POST"  action="Registro" >
+          <form class="cmxform form-horizontal style-form" method="POST"  action="" >
             {% csrf_token %}
             {% if form %}           
             <div class="form-group ">
@@ -83,8 +83,7 @@
       <!-- /form-panel -->
     </div>
     <!-- /col-lg-12 -->
-  </div>
-  
+  </div>  
 </body>
 </html>   
   <script type="text/javascript">

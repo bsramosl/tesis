@@ -80,15 +80,15 @@ class crud():
             # Si llegamos al final renderizamos el formulario
         return render(request, 'TesisApp/registro.html', {'form': form}) 
 
-    def edit(request, persona_id):
+    def edit(request, id):
         # Recuperamos la instancia de la persona
-        instancia = Persona.objects.get(id=persona_id)
+        instancia = Usuario.objects.get(id=id)
         # Creamos el formulario con los datos de la instancia
-        form = PersonaForm(instance=instancia)
+        form = UsuarioForm(instance=instancia)
         # Comprobamos si se ha enviado el formulario
         if request.method == "POST":
             # Actualizamos el formulario con los datos recibidos
-            form = PersonaForm(request.POST, instance=instancia)
+            form = UsuarioForm(request.POST, instance=instancia)
             # Si el formulario es válido...
             if form.is_valid():
                 # Guardamos el formulario pero sin confirmarlo,
@@ -96,13 +96,21 @@ class crud():
                 instancia = form.save(commit=False)
                 # Podemos guardarla cuando queramos
                 instancia.save()
+            return redirect('Admin')
                 # Si llegamos al final renderizamos el formulario
-        return render(request, 'TesisApp/registro.html', {'form': form})
-
+        return render(request, 'TesisApp/registro_admin.html', {'form': form})
+    
+    def delete(request, id):
+        # Recuperamos la instancia de la persona y la borramos
+        instancia = Usuario.objects.get(id=id)
+        instancia.delete()
+    # Después redireccionamos de nuevo a la lista
+        return redirect('Admin')
+ 
 
 def UsuarioLista(request):
     usuario = Usuario.objects.all()
-    return render(request,"TesisApp/admin.html",{'usuarios':usuario})
+    return render(request,"TesisApp/usuario_admin.html",{'usuarios':usuario})
 
 def admin(request):       
     return render(request,"TesisApp/admin.html")
@@ -110,10 +118,13 @@ def admin(request):
 def inicio(request):       
     return render(request,"TesisApp/Inicio.html")
 
-def crecimiento(request):
-    usuarios=Usuario.objects.all()
-    return render(request,"TesisApp/Crecimiento.html",{"usuarios":usuarios})
+def busqueda(request):
+    return render(request,"TesisApp/busqueda_inicio.html")
 
 def inactivacion(request):
-    https://www.hektorprofe.net/tutorial/django-formularios-crear-editar-instancias
+   
     return render(request,"TesisApp/Termica.html")
+
+def admin(request):
+   
+    return render(request,"TesisApp/admin.html")

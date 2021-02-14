@@ -1,16 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <title>Bootstrap</title>
    {% load static %}  <!--cargar pagina statica-->
-
-  <!-- Favicons -->
-  <link href="img/favicon.png" rel="icon">
-  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
-  
-  <!-- Bootstrap core CSS -->
+   <!-- Bootstrap core CSS -->
   <link href="{% static 'Tesisapp/lib/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
   <!--external css-->
   <link href="{% static 'Tesisapp/lib/font-awesome/css/font-awesome.css'%}" rel="stylesheet" />
@@ -34,7 +28,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
       </div>
       <!--logo start-->
-      <a href="{% url 'Inicio'%}" class="logo"><b>BIP<span>RE</span></b></a>
+      <a href="{% url 'Inicio'%}" class="logo"><b>Pros<span>PY</span></b></a>
       <!--logo end-->
            
       <div class="top-menu">
@@ -57,7 +51,13 @@
           <h5 class="centered">{{ name }}</h5> 
           {%else%}
         
-          {%endif%}        
+          {%endif%}       
+          <li class="mt">
+            <a class="active" href="{% url 'Inicio'%}">
+              <i class="fa fa-search"></i>
+              <span>Dashboard</span>
+              </a>
+          </li> 
          
           <li class="sub-menu">
             <a href="javascript:;">
@@ -65,8 +65,8 @@
               <span>Bioreactores</span>
               </a>
             <ul class="sub">
-              <li><a href="{% url 'Crecimiento' %}">Crecimiento</a></li>
-              <li><a href="{% url 'Termica' %}">Inactivacion Termica</a></li>
+              <li><a href="{% url 'Busqueda' %}">Crecimiento</a></li>
+              <li><a href=" ">Inactivacion Termica</a></li>
               <li><a href="panels.html">Panels</a></li>
               <li><a href="font_awesome.html">Font Awesome</a></li>
             </ul>
@@ -147,7 +147,7 @@
   <script class="include" type="text/javascript" src="{% static 'Tesisapp/lib/jquery.dcjqaccordion.2.7.js'%}"></script>
   <script src="{% static 'Tesisapp/lib/jquery.scrollTo.min.js'%}"></script>
   <script src="{% static 'Tesisapp/lib/common-scripts.js'%}"></script>
- 
+  
 </body>
 </html>
 
