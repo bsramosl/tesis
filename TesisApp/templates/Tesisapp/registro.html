@@ -25,42 +25,43 @@
       <h4>Registro de Usuario</h4>
       <div class="form-panel">
         <div class="form">
-          <form class="cmxform form-horizontal style-form" method="POST" action="Registro">
+          <form class="cmxform form-horizontal style-form" method="POST"  action="Registro" >
             {% csrf_token %}
+            {% if form %}           
             <div class="form-group ">
-              <label for="firstname" class="control-label col-lg-2">Nombre</label>
+              <label for="firstname" class="control-label col-lg-2">Nombre </label>
               <div class="col-lg-10">
-                <input class=" form-control" name="Nombre" type="text">
+                {{form.Nombre}}
               </div>
             </div>
             <div class="form-group ">
-              <label for="lastname" class="control-label col-lg-2">Apellido</label>
+              <label for="lastname" class="control-label col-lg-2">Apellido </label>
               <div class="col-lg-10">
-                <input class=" form-control" name="Apellido" type="text">
+                {{form.Apellido}}
               </div>
             </div>
             <div class="form-group ">
-              <label for="username" class="control-label col-lg-2">Usuario</label>
+              <label for="username" class="control-label col-lg-2">Usuario </label>
               <div class="col-lg-10">
-                <input class="form-control "  name="username" type="text">
+                {{form.Usuario}}
               </div>
             </div>
             <div class="form-group ">
-              <label for="password" class="control-label col-lg-2">Contraseña</label>
+              <label for="password" class="control-label col-lg-2">Contraseña </label>
               <div class="col-lg-10">
-                <input class="form-control " name="password" type="password">
+                {{form.Contraseña}}
               </div>
             </div>
             <div class="form-group ">
-              <label for="confirm_password" class="control-label col-lg-2">Confirm Contraseña</label>
+              <label for="confirm_password" class="control-label col-lg-2">Confirm Contraseña </label>
               <div class="col-lg-10">
-                <input class="form-control " name="repassword" type="password">
+                {{form.ReContraseña}}
               </div>
             </div>
             <div class="form-group ">
-              <label for="email" class="control-label col-lg-2">Email</label>
+              <label for="email" class="control-label col-lg-2">Email </label>
               <div class="col-lg-10">
-                <input class="form-control " name="Email" type="email">
+                {{form.Email}}
               </div>
             </div>
             <div class="form-group ">
@@ -71,10 +72,11 @@
             </div>           
             <div class="form-group">
               <div class="col-lg-offset-2 col-lg-10">
-                <button class="btn btn-theme" type="submit" >Save</button>
+                <button class="btn btn-theme" type="submit" >Save</button>               
                 <a href="{% url 'Login'%}"><input type="button" value="Cancelar" class="btn btn-theme04"></a>              
               </div>
             </div>
+            {% endif %}
           </form>          
         </div>
       </div>

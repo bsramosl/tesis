@@ -5,9 +5,10 @@ from django.contrib import messages
 from django.db import connections
 import mysql.connector
 from operator import itemgetter
+from .forms import UsuarioForm
 
-class LoginAndRegister():
-    
+class crud():
+        
     def login(request):
         con = mysql.connector.connect(host="localhost",user="root",
         passwd="",database="tesis")
@@ -60,36 +61,48 @@ class LoginAndRegister():
         return render(request,'TesisApp/login.html')   
         return render(request,'TesisApp/Inicio.html')  
 
+    def add(request):
+        # Creamos un formulario vacío
+        form = UsuarioForm()
+        # Comprobamos si se ha enviado el formulario
+        if request.method == "POST":
+            # Añadimos los datos recibidos al formulario
+            form = UsuarioForm(request.POST)
+            # Si el formulario es válido...
+            if form.is_valid():
+                # Guardamos el formulario pero sin confirmarlo,
+                # así conseguiremos una instancia para manejarla
+                instancia = form.save(commit=False)
+                # Podemos guardarla cuando queramos
+                instancia.save()
+                # Después de guardar redireccionamos a la lista
+            return redirect('/')
+            # Si llegamos al final renderizamos el formulario
+        return render(request, 'TesisApp/registro.html', {'form': form}) 
 
-    def register(request):        
-        if request.method =="POST":
-            usuario = Usuario ()            
-            usuario.Usuario = request.POST['username']
-            usuario.Nombre = request.POST['Nombre']
-            usuario.Apellido = request.POST['Apellido']            
-            usuario.Email = request.POST['Email']
-            usuario.Contraseña = request.POST['password']
-            usuario.ReContraseña = request.POST['repassword']
-            if usuario.Contraseña!=usuario.ReContraseña:
-                messages.info(request,"Passwords not match")
-                return redirect('Registro')  
-            elif usuario.Nombre=="" or usuario.Apellido=="" or usuario.Email=="" or usuario.Contraseña =="" or usuario.ReContraseña=="":
-                messages.info(request,"Some fields are missing")
-                return redirect('Registro')   
-            else:
-                messages.info(request,"Registro realizado")
-                usuario.save()
-            
-            return render(request,'TesisApp/login.html')   
-        else:
-            return render(request,'TesisApp/registro.html')   
-            
-        return render(request,'TesisApp/registro.html')    
+    def edit(request, persona_id):
+        # Recuperamos la instancia de la persona
+        instancia = Persona.objects.get(id=persona_id)
+        # Creamos el formulario con los datos de la instancia
+        form = PersonaForm(instance=instancia)
+        # Comprobamos si se ha enviado el formulario
+        if request.method == "POST":
+            # Actualizamos el formulario con los datos recibidos
+            form = PersonaForm(request.POST, instance=instancia)
+            # Si el formulario es válido...
+            if form.is_valid():
+                # Guardamos el formulario pero sin confirmarlo,
+                # así conseguiremos una instancia para manejarla
+                instancia = form.save(commit=False)
+                # Podemos guardarla cuando queramos
+                instancia.save()
+                # Si llegamos al final renderizamos el formulario
+        return render(request, 'TesisApp/registro.html', {'form': form})
 
-class TablasListadas():
-    def UsuarioLista(request):
-        usuario = Usuario.objects.all()
-        return render(request,"TesisApp/admin.html",{'usuarios':usuario})
+
+def UsuarioLista(request):
+    usuario = Usuario.objects.all()
+    return render(request,"TesisApp/admin.html",{'usuarios':usuario})
 
 def admin(request):       
     return render(request,"TesisApp/admin.html")
@@ -103,4 +116,3 @@ def crecimiento(request):
 
 def inactivacion(request):
     return render(request,"TesisApp/Termica.html")
-

@@ -175,42 +175,48 @@
 
    <section id="main-content">
       <section class="wrapper">
-        <h3><i class="fa fa-angle-right"></i> Basic Table Examples</h3>
+        <h3><i class="fa fa-angle-right"></i>Usuario</h3>
         <div class="row">
           <div class="col-md-12">
-            <div class="content-panel">
-              <h4><i class="fa fa-angle-right"></i> Basic Table</h4>
-              <hr>
-              <table class="table">
+            <div class="content-panel">              
+              <table class="table table-bordered table-striped table-condensed">
                 <thead>
                   <tr>
-                    <td>#</td>
+                    <td>id</td>
                     <td>Usuario</td>
                     <td>Nombre</td>
                     <td>Apellido</td>
                     <td>Email</td>
-                    <td>Contraseña</td>                   
+                    <td>Contraseña</td>                 
                 </thead>
                 <tbody>
-                  <tr>                     
+                  <tr>       
+                    {% if usuarios %}              
                     {% for usuario in usuarios %}
+                    <td>{{usuario.id}}</td>
                     <td>{{usuario.Usuario}}</td>
                     <td>{{usuario.Nombre}}</td>
                     <td>{{usuario.Apellido}}</td>
                     <td>{{usuario.Email}}</td>
-                    <td>{{usuario.Contraseña}}</td>
-                    <td>{{usuario.Usuario}}</td>                
-                    {% endfor %}    
+                    <td>{{usuario.Contraseña}}</td>  
+                    <td>
+                      <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
+                      <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button>
+                      <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o "></i></button>                      
+                    </td>                                              
                   </tr> 
+                  {% endfor %} 
+                  {% else %}
+                  <h1>No hay datos</h1>
+                  {%endif%}
                 </tbody>
               </table>
             </div>
           </div>
           <!-- /col-md-12 -->
         
-      </section>
-    </section>
-      
+      </section>      
+    </section>        
     {% endblock %}  
     <!--main content end-->
 
@@ -222,3 +228,20 @@
   <script src="{% static 'Tesisapp/lib/common-scripts.js'%}"></script> 
 </body>
 </html>
+
+
+
+<div class="row mt">
+  <!-- SERVER STATUS PANELS -->
+  <div class="col-md-4 col-sm-4 mb">
+    |
+  </div>
+  <!-- /col-md-4-->
+  <div class="col-md-4 col-sm-4 mb">
+    
+  </div>
+  <!-- /col-md-4 -->
+  <div class="col-md-4 col-sm-4 mb">          
+  </div>
+  <!-- /col-md-4 -->
+</div>
