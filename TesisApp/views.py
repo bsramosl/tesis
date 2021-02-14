@@ -115,4 +115,5 @@ def crecimiento(request):
     return render(request,"TesisApp/Crecimiento.html",{"usuarios":usuarios})
 
 def inactivacion(request):
+    https://www.hektorprofe.net/tutorial/django-formularios-crear-editar-instancias
     return render(request,"TesisApp/Termica.html")
