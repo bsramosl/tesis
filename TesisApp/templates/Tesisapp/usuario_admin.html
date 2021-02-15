@@ -5,34 +5,20 @@
     <section class="wrapper">
       <h3><i class="fa fa-angle-right"></i>Usuario</h3>
       <div class="row">
-        <div class="col-md-12">
-          <div class="content-panel">  
-            
-            <script language="javascript">
-              function doSearch() {
-                  var tableReg = document.getElementById('regTable');
-                  var searchText = document.getElementById('searchTerm').value.toLowerCase();
-                  for (var i = 1; i < tableReg.rows.length; i++) {
-                      var cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
-                      var found = false;
-                      for (var j = 0; j < cellsOfRow.length && !found; j++) {
-                          var compareWith = cellsOfRow[j].innerHTML.toLowerCase();
-                          if (searchText.length == 0 || (compareWith.indexOf(searchText) > -1)) {
-                              found = true;
-                          }
-                      }
-                      if (found) {
-                          tableReg.rows[i].style.display = '';
-                      } else {
-                          tableReg.rows[i].style.display = 'none';
-                      }
-                  }
-              }
-          </script>
-          
-            <input id="searchTerm" type="text" onkeyup="doSearch()" />
-         
-            <table class="table table-bordered table-striped table-condensed" >
+        <div class="col-md-12">         
+            <div class=" col-md-8"></div>
+            <div class="col-xs-6 col-md-3"  style=" padding-top: 10px;"  >
+              <form class="form-horizontal tasi-form" method="get">
+                <div class="form-group  ">
+                  <label class="col-sm-2 control-label col-lg-2">Buscar</label>
+                  <div class="col-lg-10">
+                  <input class="form-control" id="buscar" type="text" onkeyup="doSearch()"/></div> 
+                  </div>
+                </form>
+                </div>
+        </div>            
+          <div class="content-panel">            
+            <table id="table" class="table table-bordered table-striped table-condensed" >
               <thead>
                 <tr>
                   <td>id</td>
@@ -42,7 +28,7 @@
                   <td>Email</td>
                   <td>Contraseña</td>                 
               </thead>
-              <tbody id="regTable">
+              <tbody >
                 <tr>       
                   {% if usuarios %}              
                   {% for usuario in usuarios %}
@@ -67,11 +53,29 @@
             </table>
           </div>
         </div>
-        <!-- /col-md-12 -->
-      </div>
-      
+      </div>      
     </section>      
   </section>    
-
+    
+<script>
+ document.getElementById("buscar").onkeyup = function() {
+      var buscar_= this.value.toLowerCase() ;
+      document.querySelectorAll('.table tbody tr').forEach(function(e){
+        var encontro_ =false;
+        e.querySelectorAll('td').forEach(function(e){
+          if (e.innerHTML.toLowerCase().indexOf(buscar_)>=0){
+            encontro_=true;
+          }
+        }); 
+        if (encontro_){
+          e.style.display = '';
+        }else{
+          e.style.display = 'none';
+        }
+      });              
+}
+</script>
+  {% endblock %}   
   
-  {% endblock %}    
+  
+  
