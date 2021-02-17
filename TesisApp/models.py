@@ -1,6 +1,8 @@
 from django.db import models
 
-# Create your models here.
+rol=[(1,'Admin'),(2,'Usuario')]
+
+
 
 class Usuario(models.Model):
     Usuario = models.CharField(max_length=50)
@@ -9,6 +11,7 @@ class Usuario(models.Model):
     Email = models.CharField(max_length=50)
     Contraseña = models.CharField(max_length=50)
     ReContraseña = models.CharField(max_length=50)
+    Rol = models.IntegerField(choices=rol)
     Creado = models.DateTimeField(auto_now_add=True)
     Actualizado = models.DateTimeField(auto_now_add=True)   
 
