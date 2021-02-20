@@ -57,15 +57,15 @@
                     </div>
                   </div>
                   <div class="form-group ">
-                    <label for="agree" class="control-label col-lg-2 col-sm-3">Acepta nuestras politicas</label>
-                    <div class="col-lg-10 col-sm-9">
-                      <input type="checkbox" style="width: 20px" class="checkbox form-control" name="agree">
+                    <label for="rol" class="control-label col-lg-2">Rol </label>
+                    <div class="col-lg-10">
+                      {{form.Rol}}
                     </div>
-                  </div>           
+                  </div>          
                   <div class="form-group">
                     <div class="col-lg-offset-2 col-lg-10">
                       <button class="btn btn-theme" type="submit" >Save</button>               
-                      <a href="{% url 'Admin'%}"><input type="button" value="Cancelar" class="btn btn-theme04"></a>              
+                      <a href="{% url 'UsuarioAdmin'%}"><input type="button" value="Cancelar" class="btn btn-theme04"></a>              
                     </div>
                   </div>
                   {% endif %}

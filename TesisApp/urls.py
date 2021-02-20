@@ -11,7 +11,6 @@ urlpatterns = [
     path('edit/<int:id>',views.crud.edit),
     path('delete/<int:id>',views.crud.delete),    
     path('Registro',views.crud.add,name="Registro"),
-
     path('Busqueda',views.busqueda,name = "Busqueda"),
 
 ]

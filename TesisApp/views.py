@@ -75,6 +75,7 @@ class crud():
                 instancia = form.save(commit=False)
                 # Podemos guardarla cuando queramos
                 instancia.save()
+            print (form)
                 # Después de guardar redireccionamos a la lista
             return redirect('/')
             # Si llegamos al final renderizamos el formulario
@@ -96,7 +97,8 @@ class crud():
                 instancia = form.save(commit=False)
                 # Podemos guardarla cuando queramos
                 instancia.save()
-            return redirect('Admin')
+            messages.info(request,"Usuario Modificado")
+            return redirect('UsuarioAdmin')
                 # Si llegamos al final renderizamos el formulario
         return render(request, 'TesisApp/registro_admin.html', {'form': form})
     
@@ -105,7 +107,7 @@ class crud():
         instancia = Usuario.objects.get(id=id)
         instancia.delete()
     # Después redireccionamos de nuevo a la lista
-        return redirect('Admin')
+        return redirect('UsuarioAdmin')
  
 
 def UsuarioLista(request):
