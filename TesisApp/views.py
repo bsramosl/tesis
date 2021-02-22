@@ -39,7 +39,7 @@ class crud():
             Contraseña = request.POST['password']
             k=len(res)
             i=0
-            sqlcommand3 = "select Nombre from tesisapp_usuario where Usuario = Usuario"
+            sqlcommand3 = "select Usuario from tesisapp_usuario where Usuario = Usuario"
             cursor3.execute(sqlcommand3)
             lst =[]
             for name in cursor3:
@@ -123,10 +123,12 @@ def inicio(request):
 def busqueda(request):
     return render(request,"TesisApp/busqueda_inicio.html")
 
-def inactivacion(request):
-   
+def inactivacion(request):   
     return render(request,"TesisApp/Termica.html")
 
-def admin(request):
-   
+def admin(request):   
     return render(request,"TesisApp/admin.html")
+    
+def base(request):   
+    return render(request,"TesisApp/base_usu.html")
+
