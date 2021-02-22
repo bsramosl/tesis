@@ -8,13 +8,13 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('TesisApp', '0001_initial'),
-    ]
+    ]     
 
     operations = [
         migrations.AddField(
             model_name='usuario',
             name='Rol',
-            field=models.IntegerField(choices=[(1, 'Admin'), (2, 'Usuario')], default=django.utils.timezone.now),
+            field=models.IntegerField(choices=[(1, 'Admin'), (2, 'Usuario')], default=1),
             preserve_default=False,
         ),
     ]

@@ -18,5 +18,4 @@ class UsuarioForm(ModelForm):
     Contraseña = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
     ReContraseña = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
     Rol=forms.CharField(widget=forms.Select(attrs={'class': 'form-control'},choices=CHOICES))
-  
-   
+ 

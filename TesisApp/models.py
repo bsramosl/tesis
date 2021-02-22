@@ -2,8 +2,6 @@ from django.db import models
 
 rol=[(1,'Admin'),(2,'Usuario')]
 
-
-
 class Usuario(models.Model):
     Usuario = models.CharField(max_length=50)
     Nombre  = models.CharField(max_length=50)
