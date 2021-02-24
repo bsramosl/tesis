@@ -22,11 +22,12 @@
     </div>
     {%endfor%}
 
-    <form class="form-login" action="Login" method="post">
+    <form class="form-login" action="" method="post">
         {% csrf_token %} 
+        
         <h5>Iniciar Sesión</h5>
-        <input class="controls" type="text" name="Uusario" value="" placeholder="Usuario">                   
-            <input class="controls" type="password" name="Contraseña" value="" placeholder="Contraseña">
+        {{form.username}}
+        {{form.password}}
             <div class="form-footer">
                 <input class="buttons" type="submit" name="Cancelar" value="Cancelar">
                 <input class="buttons" type="submit" name="Ingresar" value="Ingresar">
