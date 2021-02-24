@@ -1,2 +1,3 @@
 crear proyecto django************django-admin startproject
 crear app django************python manage.py startapp 
+instalar crispy************pip install django-crispy-forms
