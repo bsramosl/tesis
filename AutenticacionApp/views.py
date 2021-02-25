@@ -1,9 +1,8 @@
 from django.shortcuts import render,redirect
 from django.views.generic import View
-from django.contrib.auth.forms import UserCreationForm,AuthenticationForm,PasswordChangeForm,UserChangeForm
 from django.contrib import messages
 from django.contrib.auth import login,logout,authenticate
-from  .forms import UsuarioForm, LoginForm ,ContraseñaForm, EditarForm
+from  .forms import UsuarioForm, LoginForm ,ContraseñaForm,UsuForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.models import User
 
@@ -61,17 +60,25 @@ def cambiar_contraseña(request):
 class Crud():
 
     def edit(request,id):
-        instancia = User.objects.get(id=id)        
-        form = UserChangeForm(instance=instancia)
-        if request.method == 'POST':
-            form = UserChangeForm(request.POST, instance=instancia)
+        # Recuperamos la instancia de la persona
+        instancia = User.objects.get(id=id)
+        # Creamos el formulario con los datos de la instancia
+        form = UsuForm(instance=instancia)
+        # Comprobamos si se ha enviado el formulario
+        if request.method == "POST":
+            # Actualizamos el formulario con los datos recibidos
+            form = UsuForm(request.POST, instance=instancia)
+            # Si el formulario es válido...
             if form.is_valid():
-                form.save()
+                # Guardamos el formulario pero sin confirmarlo,
+                # así conseguiremos una instancia para manejarla
+                instancia = form.save(commit=False)
+                # Podemos guardarla cuando queramos
                 instancia.save()
-                return redirect('UsuarioAdmin')
-        else:
-            form = UserChangeForm(instance=instancia)
-        return render(request, 'TesisApp/registro_admin.html', {'form': form}) 
+            messages.info(request,'Usuario Modificado')
+            return redirect('UsuarioAdmin')
+                # Si llegamos al final renderizamos el formulario
+        return render(request, 'TesisApp/registro_admin.html', {'form': form})
 
 
     def delete(request, id):
@@ -82,8 +89,6 @@ class Crud():
         return redirect('UsuarioAdmin')
 
      
-
-
 
 def UsuarioLista(request):
     usuario = User.objects.values()

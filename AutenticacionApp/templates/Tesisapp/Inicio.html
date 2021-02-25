@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Bootstrap</title>
-   {% load static %}  
-   {% csrf_token %}   
-   <!-- Bootstrap core CSS -->
+  {% load static %}
+  {% csrf_token %}
+  <!-- Bootstrap core CSS -->
   <link href="{% static 'Tesisapp/lib/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
   <!--external css-->
   <link href="{% static 'Tesisapp/lib/font-awesome/css/font-awesome.css'%}" rel="stylesheet" />
@@ -31,7 +32,7 @@
       <!--logo start-->
       <a href="{% url 'Inicio'%}" class="logo"><b>Pros<span>PY</span></b></a>
       <!--logo end-->
-           
+
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
           <li><a class="logout" href="{% url 'Salir'%}">Salir</a></li>
@@ -48,25 +49,25 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
           <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="80"></a></p>
-          {% if user.is_authenticated  %}
+          {% if user.is_authenticated %}
           <h5 class="centered">{{ user.username }}</h5>
-         
+
           {% else %}
 
           {% endif %}
-   
+
           <li class="mt">
             <a class="active" href="{% url 'Inicio'%}">
               <i class="fa fa-search"></i>
               <span>Inicio</span>
-              </a>
-          </li> 
-         
+            </a>
+          </li>
+
           <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-desktop"></i>
               <span>Bioreactores</span>
-              </a>
+            </a>
             <ul class="sub">
               <li><a href=" ">Crecimiento</a></li>
               <li><a href=" ">Inactivacion Termica</a></li>
@@ -78,39 +79,39 @@
             <a href="javascript:;">
               <i class="fa fa-cogs"></i>
               <span>Ajustes</span>
-              </a>
+            </a>
             <ul class="sub">
               <li><a href="{% url 'ConficUsu'%}">Cuenta</a></li>
-              <li><a href="{% url 'UsuarioAdmin'%}">Calendar</a></li>
+              <li><a href="">Calendar</a></li>
             </ul>
-          </li> 
+          </li>
         </ul>
         <!-- sidebar menu end-->
       </div>
     </aside>
-       <!-- **********************************************************************************************************************************************************
+    <!-- **********************************************************************************************************************************************************
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
     <!--main content start-->
     <section id="main-content">
-        <section class="wrapper">  
-    {% include 'Tesisapp/messages.html' %}
-    {% block content %}
-        
-      
-      
-    {% endblock %}   
-        </section>
-        <!-- /wrapper -->
+      <section class="wrapper">
+        {% include 'Tesisapp/messages.html' %}
+        {% block content %}
+
+
+
+        {% endblock %}
       </section>
-       
+      <!-- /wrapper -->
+    </section>
+
   </section>
   <!-- js placed at the end of the document so the pages load faster -->
   <script src="{% static 'Tesisapp/lib/jquery/jquery.min.js'%}"></script>
   <script class="include" type="text/javascript" src="{% static 'Tesisapp/lib/jquery.dcjqaccordion.2.7.js'%}"></script>
   <script src="{% static 'Tesisapp/lib/jquery.scrollTo.min.js'%}"></script>
   <script src="{% static 'Tesisapp/lib/common-scripts.js'%}"></script>
-  
+
 </body>
+
 </html>
- 

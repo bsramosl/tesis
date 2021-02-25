@@ -1,10 +1,6 @@
 {% extends "Tesisapp/admin.html" %}
 {% load static %}
-{% include 'Tesisapp/messages.html' %}
 {% block content %}
-<section id="main-content">
-  <section class="wrapper">
-    
     <div class="row mt">
       <div class="col-md-12">
         <div class=" col-md-8"><h4><i class="fa fa-angle-right"></i> Usuarios </h4> </div>
@@ -27,7 +23,8 @@
                 <td>Nombre</td>
                 <td>Apellido</td>
                 <td>Email</td>
-                <td>Contraseña</td>   
+                <td>Administrador</td>
+                <td>UltimoAcceso</td>                   
                 <th><i class=" fa fa-edit"></i> Status</th>              
             </thead>
             <tbody >
@@ -39,7 +36,8 @@
                 <td>{{usuario.first_name}}</td>
                 <td>{{usuario.last_name}}</td>
                 <td>{{usuario.email}}</td>
-                <td>{{usuario.password}}</td>
+                <td>{{usuario.is_superuser}}</td>
+                <td>{{usuario.last_login}}</td>
                 <td><span class="label label-warning label-mini">Due</span></td>                
                 <td>
                   <button class="btn btn-success btn-xs"><i class="fa fa-check"></i></button>
@@ -60,8 +58,6 @@
       <!-- /col-md-12 -->
     </div>
     <!-- /row -->
-  </section>
-</section>
 <script>
  document.getElementById("buscar").onkeyup = function() {
       var buscar_= this.value.toLowerCase() ;
