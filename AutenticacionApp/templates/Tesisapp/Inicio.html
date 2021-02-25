@@ -81,7 +81,7 @@
               </a>
             <ul class="sub">
               <li><a href="{% url 'ConficUsu'%}">Cuenta</a></li>
-              <li><a href="calendar.html">Calendar</a></li>
+              <li><a href="{% url 'UsuarioAdmin'%}">Calendar</a></li>
             </ul>
           </li> 
         </ul>
@@ -94,6 +94,7 @@
     <!--main content start-->
     <section id="main-content">
         <section class="wrapper">  
+    {% include 'Tesisapp/messages.html' %}
     {% block content %}
         
       
