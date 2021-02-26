@@ -110,3 +110,6 @@ def Login(request):
 
 def ConficUsu(request):
     return render(request,"TesisApp/config_usu.html")
+
+def ModeloReact(request):
+    return render(request,"TesisApp/modelo_reactor.html")

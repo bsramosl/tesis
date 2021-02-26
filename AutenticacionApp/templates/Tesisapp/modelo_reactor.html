@@ -1,0 +1,34 @@
+{% extends "Tesisapp/Inicio.html" %}
+{% load static %}
+{% block content %}
+<div class="row mt">
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="showback">
+              <h4><i class="fa fa-angle-right"></i> Split Buttons</h4>
+              <!-- Split button -->
+              <div class="btn-group">
+                <button type="button" class="btn btn-theme03">Action</button>
+                <button type="button" class="btn btn-theme03 dropdown-toggle" data-toggle="dropdown">
+                  <span class="caret"></span>
+                  <span class="sr-only">Toggle Dropdown</span>
+                  </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                </ul>
+              </div>
+            </div>          
+          </div>         
+          <div class="col-lg-6 col-md-6 col-sm-12">            
+            <div class="showback">
+              <h4><i class="fa fa-angle-right"></i> Buttons With Icons</h4>
+              <button type="button" class="btn btn-theme"><i class="fa fa-cog"></i> Button</button>
+              <button type="button" class="btn btn-theme02"><i class="fa fa-check"></i> Button</button>
+              <button type="button" class="btn btn-theme04"><i class="fa fa-heart"></i> Button</button>
+            </div>            
+          </div>           
+        </div>
+{% endblock %}
