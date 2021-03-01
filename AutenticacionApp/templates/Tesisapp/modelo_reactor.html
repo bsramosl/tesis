@@ -1,33 +1,47 @@
 {% extends "Tesisapp/Inicio.html" %}
 {% load static %}
 {% block content %}
-<div class="row mt">
+<div class="row mt">          
           <div class="col-lg-6 col-md-6 col-sm-12">
-            <div class="showback">
-              <h4><i class="fa fa-angle-right"></i> Split Buttons</h4>
-              <!-- Split button -->
-              <div class="btn-group">
-                <button type="button" class="btn btn-theme03">Action</button>
-                <button type="button" class="btn btn-theme03 dropdown-toggle" data-toggle="dropdown">
-                  <span class="caret"></span>
-                  <span class="sr-only">Toggle Dropdown</span>
-                  </button>
-                <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-                </ul>
-              </div>
+            <div class="showback">               
+              
             </div>          
           </div>         
           <div class="col-lg-6 col-md-6 col-sm-12">            
             <div class="showback">
-              <h4><i class="fa fa-angle-right"></i> Buttons With Icons</h4>
-              <button type="button" class="btn btn-theme"><i class="fa fa-cog"></i> Button</button>
-              <button type="button" class="btn btn-theme02"><i class="fa fa-check"></i> Button</button>
-              <button type="button" class="btn btn-theme04"><i class="fa fa-heart"></i> Button</button>
+                <div class="pc-tab">
+                    <input checked="checked" id="tab1" type="radio" name="pct"/>
+                    <input id="tab2" type="radio" name="pct"/>
+                    <input id="tab3" type="radio" name="pct"/>   
+                    <nav>
+                        <ul>
+                           <li class="tab1">
+                              <label for="tab1">Primera tabla</label>
+                           </li>
+                            <li class="tab2">
+                              <label for="tab2">Segunda tabla</label>
+                           </li>
+                            <li class="tab3">
+                              <label for="tab3">Tercera tabla</label>
+                           </li>
+                        </ul>
+                    </nav>
+                    <section>
+                        <div class="tab1">
+                           <h2>Primero</h2>
+                           <div id="chart-4" class="chart" style="padding: 0px; position: relative;"><canvas class="base" width="536" height="300"></canvas><canvas class="overlay" width="536" height="300" style="position: absolute; left: 0px; top: 0px;"></canvas><div class="tickLabels" style="font-size:smaller"><div class="xAxis x1Axis" style="color:#545454"><div class="tickLabel" style="position:absolute;text-align:center;left:-5px;top:285px;width:67px">0</div><div class="tickLabel" style="position:absolute;text-align:center;left:67px;top:285px;width:67px">2</div><div class="tickLabel" style="position:absolute;text-align:center;left:139px;top:285px;width:67px">4</div><div class="tickLabel" style="position:absolute;text-align:center;left:211px;top:285px;width:67px">6</div><div class="tickLabel" style="position:absolute;text-align:center;left:283px;top:285px;width:67px">8</div><div class="tickLabel" style="position:absolute;text-align:center;left:355px;top:285px;width:67px">10</div><div class="tickLabel" style="position:absolute;text-align:center;left:427px;top:285px;width:67px">12</div></div><div class="yAxis y1Axis" style="color:#545454"><div class="tickLabel" style="position:absolute;text-align:right;top:271px;right:515px;width:21px">-2.5</div><div class="tickLabel" style="position:absolute;text-align:right;top:231px;right:515px;width:21px">0.0</div><div class="tickLabel" style="position:absolute;text-align:right;top:192px;right:515px;width:21px">2.5</div><div class="tickLabel" style="position:absolute;text-align:right;top:153px;right:515px;width:21px">5.0</div><div class="tickLabel" style="position:absolute;text-align:right;top:114px;right:515px;width:21px">7.5</div><div class="tickLabel" style="position:absolute;text-align:right;top:75px;right:515px;width:21px">10.0</div><div class="tickLabel" style="position:absolute;text-align:right;top:36px;right:515px;width:21px">12.5</div><div class="tickLabel" style="position:absolute;text-align:right;top:-3px;right:515px;width:21px">15.0</div></div></div></div>
+                        </div>
+                        <div class="tab2">
+                           <h2>Segundo</h2>
+                           <p>zcxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+                        </div>
+                        <div class="tab3">
+                           <h2>Tercero</h2>
+                           <p>zcxxxxxxxxxxxxxxxxxxxxx</p>
+                        </div>
+                    </section>             
+                </div>
+             
             </div>            
           </div>           
         </div>

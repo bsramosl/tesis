@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'Tesisapp/lib/gritter/css/jquery.gritter.css'%}"/>
     <!-- Custom styles for this template -->
     <link href=" {% static 'Tesisapp/css/style.css'%}" rel="stylesheet" />
+    <link href=" {% static 'Tesisapp/css/estilo.css'%}" rel="stylesheet" />
     <link href="{% static 'Tesisapp/css/style-responsive.css'%}" rel="stylesheet" />
     <script src="{% static 'Tesisapp/lib/chart-master/Chart.js'%}"></script>
   </head>
@@ -79,10 +80,8 @@
                 <span>Bioreactores</span>
               </a>
               <ul class="sub">
-                <li><a href=" ">Modelo de reactores</a></li>
-                <li><a href=" ">Inactivacion Termica</a></li>
-                <li><a href="panels.html">Panels</a></li>
-                <li><a href="font_awesome.html">Font Awesome</a></li>
+                <li><a href="{% url 'ModeloReact'%}">Reactor BATCH</a></li>
+                <li><a href=""> </a></li>
               </ul>
             </li>
             <li class="sub-menu">
@@ -92,7 +91,6 @@
               </a>
               <ul class="sub">
                 <li><a href="{% url 'ConficUsu'%}">Cuenta</a></li>
-                <li><a href="">Calendar</a></li>
               </ul>
             </li>
           </ul>
