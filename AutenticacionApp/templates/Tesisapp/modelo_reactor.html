@@ -2,13 +2,30 @@
 {% load static %}
 {% block content %}
 <div class="row mt">          
-          <div class="col-lg-6 col-md-6 col-sm-12">
-            <div class="showback">               
-              
-            </div>          
+          <div class="col-lg-6 ">
+            <div class="content-panel"> 
+
+               <div class="col-lg-3 col-md-3 col-sm-3 col-xs-4 ">
+               <div class="titlesimple" style="width:57px; float:left"><span class="predTitle" style="font-size:x-small;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">En eso. </font><font style="vertical-align: inherit;">nivel</font></font></span></div>
+               <div style="margin-left:63px"><input name="predInput" class="predInput small" size="5"></div>
+               </div> 
+
+               <div class="col-lg-9 col-md-9 col-sm-9 col-xs-8">
+                  <div style="width:5px; float:left; text-align: right"><span style="font-size:15px;">0</span></div>
+                  <div style="width:25px; float:right"><span class="lblMaxInput text-muted" style="font-size:x-small;"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">7</font></font></span><a class="lnkResetDefault" href="#" style="display:none" data-toggle="tooltip" data-placement="top" title="Reset to default value"><i style="margin-left: 5px" class="fa fa-lg fa-undo"></i></a></div>
+                  <div style="padding-top:7px; margin-left:28px; margin-right:28px" class="slidecontainer"><div class="predSlider noUi-target noUi-ltr noUi-horizontal noUi-connect"><div class="noUi-base"><div class="noUi-origin noUi-background noUi-stacking" style="left: 51.4286%;"> </div></div></div></div>
+                  <div class="slidecontainer">                   
+                  <input type="range" min="1" max="100" value="50" id="myRange">   
+                  <p>Value: <span id="demo"></span></p>
+</div>
+               
+               </div> 
+            </div>  
+
           </div>         
-          <div class="col-lg-6 col-md-6 col-sm-12">            
-            <div class="showback">
+          
+          <div class="col-lg-6 " id="chartjs">            
+            <div class="showback" >
                 <div class="pc-tab">
                     <input checked="checked" id="tab1" type="radio" name="pct"/>
                     <input id="tab2" type="radio" name="pct"/>
@@ -29,11 +46,11 @@
                     <section>
                         <div class="tab1">
                            <h2>Primero</h2>
-                           <div id="chart-4" class="chart" style="padding: 0px; position: relative;"><canvas class="base" width="536" height="300"></canvas><canvas class="overlay" width="536" height="300" style="position: absolute; left: 0px; top: 0px;"></canvas><div class="tickLabels" style="font-size:smaller"><div class="xAxis x1Axis" style="color:#545454"><div class="tickLabel" style="position:absolute;text-align:center;left:-5px;top:285px;width:67px">0</div><div class="tickLabel" style="position:absolute;text-align:center;left:67px;top:285px;width:67px">2</div><div class="tickLabel" style="position:absolute;text-align:center;left:139px;top:285px;width:67px">4</div><div class="tickLabel" style="position:absolute;text-align:center;left:211px;top:285px;width:67px">6</div><div class="tickLabel" style="position:absolute;text-align:center;left:283px;top:285px;width:67px">8</div><div class="tickLabel" style="position:absolute;text-align:center;left:355px;top:285px;width:67px">10</div><div class="tickLabel" style="position:absolute;text-align:center;left:427px;top:285px;width:67px">12</div></div><div class="yAxis y1Axis" style="color:#545454"><div class="tickLabel" style="position:absolute;text-align:right;top:271px;right:515px;width:21px">-2.5</div><div class="tickLabel" style="position:absolute;text-align:right;top:231px;right:515px;width:21px">0.0</div><div class="tickLabel" style="position:absolute;text-align:right;top:192px;right:515px;width:21px">2.5</div><div class="tickLabel" style="position:absolute;text-align:right;top:153px;right:515px;width:21px">5.0</div><div class="tickLabel" style="position:absolute;text-align:right;top:114px;right:515px;width:21px">7.5</div><div class="tickLabel" style="position:absolute;text-align:right;top:75px;right:515px;width:21px">10.0</div><div class="tickLabel" style="position:absolute;text-align:right;top:36px;right:515px;width:21px">12.5</div><div class="tickLabel" style="position:absolute;text-align:right;top:-3px;right:515px;width:21px">15.0</div></div></div></div>
+                           <canvas id="line" height="300" width="500"></canvas>                       
                         </div>
                         <div class="tab2">
                            <h2>Segundo</h2>
-                           <p>zcxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+                           <canvas id="doughnut" height="300" width="400"></canvas>
                         </div>
                         <div class="tab3">
                            <h2>Tercero</h2>
@@ -43,12 +60,20 @@
                 </div>
              
             </div>            
-          </div>           
-        </div>
+          </div>
 
-
+</div>
+ 
+ 
+                 
 <script>
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
 
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+</script>         
 
-</script
 {% endblock %}
