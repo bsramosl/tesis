@@ -91,12 +91,11 @@ body{
   list-style-type: none;
   margin: 0;
   padding: 0;
-
 }
 
 .pc-tab ul li label{
   float: left;
-  padding: 15px 25px;
+  padding: 5px 25px;
   border: 1px solid #ddd;
   border-bottom: 0;
   background-color: #eeeeee;
@@ -119,12 +118,10 @@ body{
 }
 
 .pc-tab section div{
-  padding: 20px;
-  width: 100%;
-  border: 1px solid #ddd;
+  padding: 2px;
+  width: 100%;  
   background-color: #fff;
   line-height: 1.5em;
-  letter-spacing: 0.5px;
   color: #444;
 }
 
@@ -177,3 +174,10 @@ body{
   background: #4CAF50;
   cursor: pointer;
 }
+
+.blockslider{
+  height: 20px;
+  overflow: hidden;
+  padding-bottom: 1px;
+}
+

@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html>
+   
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title></title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="" />
-    <title>Bootstrap</title>
-    {% load static %} {% csrf_token %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />    
+    <title>Inicio</title>
+    {% load static %} 
+    {% csrf_token %}
     <!-- Bootstrap core CSS -->
     <link href="{% static 'Tesisapp/lib/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet"/>
     <!--external css-->
@@ -18,8 +16,12 @@
     <link href=" {% static 'Tesisapp/css/style.css'%}" rel="stylesheet" />
     <link href=" {% static 'Tesisapp/css/estilo.css'%}" rel="stylesheet" />
     <link href="{% static 'Tesisapp/css/style-responsive.css'%}" rel="stylesheet" />
-    <script></script>
-  
+    <script src="{% static 'Tesisapp/lib/Highcharts/highcharts.js'%}"></script>
+    <script src="{% static 'Tesisapp/lib/Highcharts/modules/series-label.js'%}"></script>
+    <script src="{% static 'Tesisapp/lib/Highcharts/modules/exporting.js'%}"></script>
+    <script src="{% static 'Tesisapp/lib/Highcharts/modules/export-data.js'%}"></script>
+    <script src="{% static 'Tesisapp/lib/Highcharts/modules/accessibility.js'%}"></script>
+
   </head>
 
   <body>
@@ -52,11 +54,8 @@
       <!-- **********************************************************************************************************************************************************
         MAIN SIDEBAR MENU
         *********************************************************************************************************************************************************** -->
-      <!--sidebar start-->
-      
+      <!--sidebar start-->   
 
-
-      <aside>
         <div id="sidebar" class="nav-collapse">
         {% block sidebar %}
           <!-- sidebar menu start-->
@@ -66,6 +65,7 @@
                 ><img src="img/ui-sam.jpg" class="img-circle" width="80"
               /></a>
             </p>
+
             {% if user.is_authenticated %}
             <h5 class="centered">{{ user.username }}</h5>
 
@@ -105,11 +105,13 @@
       <!-- **********************************************************************************************************************************************************
         MAIN CONTENT
         *********************************************************************************************************************************************************** -->
-        {% include 'Tesisapp/messages.html' %}
+        
+
       <!--main content start-->
       <section id="main-content">
         <section class="wrapper">
-           
+
+        {% include 'Tesisapp/messages.html' %}           
         {% block content %}          
           <div class="row mt">
             <div class="col-lg-12 form-panel">
@@ -155,7 +157,6 @@
     ></script>
     <script src="{% static 'Tesisapp/lib/jquery.scrollTo.min.js'%}"></script>
     <script src="{% static 'Tesisapp/lib/common-scripts.js'%}"></script>
-    <script src="{% static 'Tesisapp/lib/chart-master/Chart.js' %}"></script>
-    <script src="{% static 'Tesisapp/lib/chartjs-conf.js' %}"></script>
+    <script src="{% static 'Tesisapp/lib/chart-master/Chart.js' %}"></script>    
   </body>
 </html>
