@@ -64,13 +64,12 @@
               <a href="profile.html"
                 ><img src="img/ui-sam.jpg" class="img-circle" width="80"
               /></a>
-            </p>
-
+            </p>      
             {% if user.is_authenticated %}
             <h5 class="centered">{{ user.username }}</h5>
-
-            {% else %} {% endif %}
-
+            {% else %} 
+            <meta http-equiv="refresh" content="0; url='Login'">
+            {% endif %}
             <li class="mt">
               <a class="active" href="{% url 'Inicio'%}">
                 <i class="fa fa-search"></i>
@@ -84,8 +83,9 @@
                 <span>Bioreactores</span>
               </a>
               <ul class="sub">
-                <li><a href="{% url 'ModeloReact'%}">Reactor BATCH</a></li>
-                <li><a href=""> </a></li>
+                <li><a href="{% url 'ModeloReact'%}">Reactor BATCH Adiabático</a></li>
+                <li><a href="">Reactor BATCH Isotérmico </a></li> 
+                <li><a href="">Reactor BATCH No Isotérmico </a></li>
               </ul>
             </li>
             <li class="sub-menu">
