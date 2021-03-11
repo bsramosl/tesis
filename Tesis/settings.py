@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'AutenticacionApp',
     'crispy_forms',
     'numpy',
+    'sympy',
 ]
 
 MESSAGE_TAGS = {
