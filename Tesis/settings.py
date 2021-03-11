@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'AutenticacionApp',
-    'crispy_forms'
+    'crispy_forms',
+    'numpy',
 ]
 
 MESSAGE_TAGS = {
