@@ -26,3 +26,4 @@ display([yi[n] for n in np.arange(3)])
 sol = sp.solve([ni[n]>= 0 for n in np.arange(3)])
 display(sol)
 
+https://www.youtube.com/watch?v=OimESDAL_EE
