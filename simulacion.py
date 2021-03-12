@@ -41,3 +41,14 @@ print('El calor de reaccion a 298.15 K es igual a {:.1f} J/mol'.format(DHT0))
 print('El DG de reaccion a 298.15 K es igual a {:.1f} J/mol'.format(DGT0))
 print('L constante de equilibrio quimico a 298.15 K es igual a {:.3e} J/mol'.format(KT0))
 
+DHt = DHT0 +sp.integrate(DA +DB *t, (t, 298.15, Tout))
+lnKe = np.log(KT0)+1/R *(sp.integrate(DHt/(Tout *Tout),(Tout,298.15,Tout)))
+display (lnKe)
+
+
+F1 = sp.log(Ka)/lnKe-1
+F2 = np.sum([molesAlime[n] * sp.integrate(data[n,2]+ data[n,3]*1e-2+data[n,0]+data[n,1])
+for n in np.arange(3)])+ xi * DHt
+
+F1= lambdify((Tout, xi),F1,"numpy")
+F2= lambdify((Tout, xi),F2,"numpy")

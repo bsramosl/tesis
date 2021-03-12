@@ -149,11 +149,11 @@ def rk4(a,e,s,c,d):
     y0 = 0
     xf = int(input('Tiempo maximo(s): '))
     h = int(input('Numero del paso:'))
-    n = ((xf-x0)/h)+1
+    n = round(((xf-x0)/h)+1)
     x = np.zeros(n)
     x[1]=x0
-    i=2
-    for i in n:
+    
+    for i in [n]:
         x[i]=x0+h*(i-1)
     y = np.zeros(n)
     y[1] = y0
