@@ -26,4 +26,18 @@ display([yi[n] for n in np.arange(3)])
 sol = sp.solve([ni[n]>= 0 for n in np.arange(3)])
 display(sol)
 
-https://www.youtube.com/watch?v=OimESDAL_EE
+Ka = np.prod((yi * PresionOp)**CoefMatrix)
+display(Ka)
+
+DA = np.sum(data[:,2] * CoefMatrix)
+DB = np.sum(data[:,3] * 1e-2 * CoefMatrix)
+
+
+DHT0 = np.sum(data[:,0] * CoefMatrix)
+DGT0 = np.sum(data[:,1] * CoefMatrix)
+KT0 = np.exp(-DGT0/R/Testandar)
+
+print('El calor de reaccion a 298.15 K es igual a {:.1f} J/mol'.format(DHT0))
+print('El DG de reaccion a 298.15 K es igual a {:.1f} J/mol'.format(DGT0))
+print('L constante de equilibrio quimico a 298.15 K es igual a {:.3e} J/mol'.format(KT0))
+
