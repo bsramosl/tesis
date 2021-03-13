@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+   
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />    
+    <title>{% block title %}Inicio{% endblock%}</title>
+
+    {% load static %}   
+
+    {% block extrahead %}
+
+     <link href="{% static 'Tesisapp/lib/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet"/>
+    <!--external css-->
+    <link href="{% static 'Tesisapp/lib/font-awesome/css/font-awesome.css'%}" rel="stylesheet" />    
+    <link rel="stylesheet" type="text/css" href="{% static 'Tesisapp/lib/gritter/css/jquery.gritter.css'%}"/>
+    <!-- Custom styles for this template -->
+    <link href=" {% static 'Tesisapp/css/style.css'%}" rel="stylesheet" />
+    <link href=" {% static 'Tesisapp/css/estilo.css'%}" rel="stylesheet" />
+    <link href="{% static 'Tesisapp/css/style-responsive.css'%}" rel="stylesheet" />
+    <script src="{% static 'Tesisapp/lib/Highcharts/highcharts.js'%}"></script>
+    <script src="{% static 'Tesisapp/lib/Highcharts/modules/series-label.js'%}"></script>
+    <script src="{% static 'Tesisapp/lib/Highcharts/modules/exporting.js'%}"></script>
+    <script src="{% static 'Tesisapp/lib/Highcharts/modules/export-data.js'%}"></script>
+    <script src="{% static 'Tesisapp/lib/Highcharts/modules/accessibility.js'%}"></script>
+
+    {% endblock %}
+
+  </head>
+
+  <body>
+
+    {% block header %}
+    
+    {% endblock%}
+    <section id="container">
+      <!-- **********************************************************************************************************************************************************
+        TOP BAR CONTENT & NOTIFICATIONS
+        *********************************************************************************************************************************************************** -->
+      <!--header start-->
+      <header class="header black-bg">
+        <div class="sidebar-toggle-box">
+          <div
+            class="fa fa-bars tooltips"
+            data-placement="right"
+            data-original-title="Toggle Navigation"
+          ></div>
+        </div>
+        <!--logo start-->
+        <a href="{% url 'Inicio'%}" class="logo"
+          ><b>Pros<span>PY</span></b></a
+        >
+        <!--logo end-->
+
+        <div class="top-menu">
+          <ul class="nav pull-right top-menu">
+            <li><a class="logout" href="{% url 'Salir'%}">Salir</a></li>
+          </ul>
+        </div>
+      </header>
+      <!--header end-->
+      <!-- **********************************************************************************************************************************************************
+        MAIN SIDEBAR MENU
+        *********************************************************************************************************************************************************** -->
+      <!--sidebar start-->   
+
+        <div id="sidebar" class="nav-collapse">
+        {% block sidebar %}
+          <!-- sidebar menu start-->
+          <ul class="sidebar-menu" id="nav-accordion">
+            <p class="centered">
+              <a href="profile.html"
+                ><img src="img/ui-sam.jpg" class="img-circle" width="80"
+              /></a>
+            </p>      
+            {% if user.is_authenticated %}
+            <h5 class="centered">{{ user.username }}</h5>
+            {% else %} 
+            <meta http-equiv="refresh" content="0; url='Login'">
+            {% endif %}
+            <li class="mt">
+              <a class="active" href="{% url 'Inicio'%}">
+                <i class="fa fa-search"></i>
+                <span>Inicio</span>
+              </a>
+            </li>
+
+            <li class="sub-menu">
+              <a href="javascript:;">
+                <i class="fa fa-desktop"></i>
+                <span>Bioreactores</span>
+              </a>
+              <ul class="sub">
+                <li><a href="{% url 'ModeloReact'%}">Reactor BATCH Adiabático</a></li>
+                <li><a href="">Reactor BATCH Isotérmico </a></li> 
+                <li><a href="">Reactor BATCH No Isotérmico </a></li>
+              </ul>
+            </li>
+            <li class="sub-menu">
+              <a href="javascript:;">
+                <i class="fa fa-cogs"></i>
+                <span>Ajustes</span>
+              </a>
+              <ul class="sub">
+                <li><a href="{% url 'ConficUsu'%}">Cuenta</a></li>
+              </ul>
+            </li>
+          </ul>
+          <!-- sidebar menu end-->
+          {% endblock %}
+        </div>
+      </aside>
+      <!-- **********************************************************************************************************************************************************
+        MAIN CONTENT
+        *********************************************************************************************************************************************************** -->
+        
+      <!--main content start-->
+      <section id="main-content">
+        <section class="wrapper">
+        {% include 'Tesisapp/messages.html' %}           
+        {% block content %}          
+          
+        {% endblock %}
+        </section>
+        <!-- /wrapper -->
+      </section>
+    </section>
+
+    {% block footer %}
+    {% endblock %}
+   
+    <script src="{% static 'Tesisapp/lib/jquery/jquery.min.js'%}"></script>
+    <script
+      class="include"
+      type="text/javascript"
+      src="{% static 'Tesisapp/lib/jquery.dcjqaccordion.2.7.js'%}"
+    ></script>
+    <script src="{% static 'Tesisapp/lib/jquery.scrollTo.min.js'%}"></script>
+    <script src="{% static 'Tesisapp/lib/common-scripts.js'%}"></script>
+    <script src="{% static 'Tesisapp/lib/chart-master/Chart.js' %}"></script>  
+
+    {% block extrajs %}
+    {% endblock %}
+
+  </body>
+</html>

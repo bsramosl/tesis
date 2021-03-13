@@ -52,3 +52,50 @@ for n in np.arange(3)])+ xi * DHt
 
 F1= lambdify((Tout, xi),F1,"numpy")
 F2= lambdify((Tout, xi),F2,"numpy")
+
+
+
+
+
+
+
+  
+
+print('Ingresa los siguientes datos.')
+A = int(input('factor de frecuencia A: '))
+a=A
+E = int(input('Energia de activacion: '))
+e=E
+T = int(input('Temperatura Inicial (R)): '))
+s=T
+C = int(input('capacidad calorifica de solucion (Btu/lbmolA) :'))
+c=C
+D = int(input('Entalpia de reaccion a la temperatura inicial:'))
+d=D
+
+
+
+def rk4(a,e,s,c,d):
+    x0 = 0
+    y0 = 0
+    xf = int(input('Tiempo maximo(s): '))
+    h = int(input('Numero del paso:'))
+    n = round(((xf-x0)/h)+1)
+    x = np.zeros(n)
+    x[1]=x0
+    
+    for i in [n]:
+        x[i]=x0+h*(i-1)
+    y = np.zeros(n)
+    y[1] = y0
+    print('Tabla de resultados')
+    for i in n:
+        k1 = f((xi-1),y(i-1))
+        k2 = f(x(i-1)+(0.5*h),y(i-1)+(0.5*k1*h))
+        k3 = f(x(i-1)+(0.5*h),y(i-1)+(0.5*k2*h))
+        k4 = f(x(i-1)+h,y(i-1)+(k3*h))
+        y[i]=y(i-1)+((1/6)*(k1+2*k2+2*k3+k4)*h)
+        u[i] = s-((d/c)*y(i))
+        print(x(i),y(i),u(i))
+
+

@@ -20,9 +20,9 @@ def Acceder(request):
                 messages.success(request,F"Bienvenido {nombre_usuario}")
                 return render(request,"TesisApp/Inicio.html",{"message":nombre_usuario})
             else:
-                messages.error(request,F"Datos incorrectos")                              
+                messages.error(request,form.errors)                              
         else:
-            messages.error(request,F"Los datos son incorrectos")
+            messages.error(request,form.errors)
     return render(request,"TesisApp/Login.html",{"form":form})
 
 def Registro(request):
@@ -36,11 +36,10 @@ def Registro(request):
             # Creamos la nueva cuenta de usuario
             user = form.save()
             # Si el usuario se crea correctamente 
-            if user is not None:
-                # Hacemos el login manualmente
-                login(request, user)
-                # Y le redireccionamos a la portada
-                return redirect('/')
+            messages.success(request,'Usuario registrado')  
+            return redirect('Login')
+        else:
+            messages.error(request, form.errors)
     # Si llegamos al final renderizamos el formulario
     return render(request, "TesisApp/registro.html", {'form': form})  
 
@@ -53,7 +52,7 @@ def cambiar_contraseña(request):
             messages.success(request, 'Tu contraseña ha sido cambiada.')
             return redirect('Inicio')
         else:
-            messages.error(request, 'Corrija el error a continuación.')
+            messages.error(request,form.errors)
     else:
         form = ContraseñaForm(request.user)
     return render(request, "TesisApp/config_usu.html", {'form': form})
@@ -115,63 +114,3 @@ def ConficUsu(request):
 def ModeloReact(request):
     return render(request,"TesisApp/modelo_reactor.html")
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-print('Ingresa los siguientes datos.')
-A = int(input('factor de frecuencia A: '))
-a=A
-E = int(input('Energia de activacion: '))
-e=E
-T = int(input('Temperatura Inicial (R)): '))
-s=T
-C = int(input('capacidad calorifica de solucion (Btu/lbmolA) :'))
-c=C
-D = int(input('Entalpia de reaccion a la temperatura inicial:'))
-d=D
-
-
-
-def rk4(a,e,s,c,d):
-    x0 = 0
-    y0 = 0
-    xf = int(input('Tiempo maximo(s): '))
-    h = int(input('Numero del paso:'))
-    n = round(((xf-x0)/h)+1)
-    x = np.zeros(n)
-    x[1]=x0
-    
-    for i in [n]:
-        x[i]=x0+h*(i-1)
-    y = np.zeros(n)
-    y[1] = y0
-    print('Tabla de resultados')
-    for i in n:
-        k1 = f((xi-1),y(i-1))
-        k2 = f(x(i-1)+(0.5*h),y(i-1)+(0.5*k1*h))
-        k3 = f(x(i-1)+(0.5*h),y(i-1)+(0.5*k2*h))
-        k4 = f(x(i-1)+h,y(i-1)+(k3*h))
-        y[i]=y(i-1)+((1/6)*(k1+2*k2+2*k3+k4)*h)
-        u[i] = s-((d/c)*y(i))
-        print(x(i),y(i),u(i))
-
-     
-
-
- 
-
-# RK4 method call
-rk4(a,e,s,c,d)
-
